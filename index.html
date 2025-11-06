@@ -1,0 +1,116 @@
+
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liczby zespolone – poradnik w Pythonie</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif; margin: 2rem; line-height: 1.55; }
+    header, section { max-width: 980px; margin: 0 auto 2rem auto; }
+    header h1 { margin-bottom: .25rem; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    figure { margin: 0; }
+    img { width: 100%; height: auto; display: block; border: 1px solid #ddd; }
+    code, pre { background: #f6f8fa; border: 1px solid #eaecef; border-radius: 6px; }
+    pre { padding: .75rem; overflow: auto; }
+    a.button { display: inline-block; padding: .6rem 1rem; border: 1px solid #444; border-radius: 8px; text-decoration: none; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: .5rem; text-align: left; }
+    blockquote { border-left: 4px solid #ddd; padding-left: .75rem; color: #555; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Liczby zespolone i ich reprezentacja graficzna</h1>
+    <p>Krótki poradnik i notatnik Jupyter pokazujący podstawy liczb zespolonych oraz ich wizualizacje w Pythonie.</p>
+    <p>
+      <a class="button" href="./complex_numbers_tutorial.ipynb" download>Pobierz notatnik (.ipynb)</a>
+      <a class="button" href="./README.md" download>Pobierz README.md</a>
+    </p>
+  </header>
+
+  <section>
+    <h2>Co to jest Jupyter Notebook?</h2>
+    <blockquote>„Dobrze narysowana liczba zespolona mówi więcej niż akapit definicji.”</blockquote>
+    <p><strong>Jupyter Notebook</strong> to interaktywne środowisko łączące <em>kod</em>, <em>wyniki</em> i <em>opis</em> (Markdown) w jednym pliku <code>.ipynb</code>. Pozwala uruchamiać komórki z kodem krok po kroku, wizualizować wyniki (wykresy) i dodawać objaśnienia. Idealne do eksploracji danych i dydaktyki.</p>
+    <ul>
+      <li>Plik notatnika: <code>complex_numbers_tutorial.ipynb</code></li>
+      <li>Technologie: Python 3, <code>numpy</code>, <code>matplotlib</code></li>
+      <li>Wykresy renderują się bezpośrednio w notatniku.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Podgląd rysunków</h2>
+    <div class="gallery">
+      <figure>
+        <img src="./img/argand_scatter.png" alt="Punkty na płaszczyźnie zespolonej">
+        <figcaption>Punkty na płaszczyźnie zespolonej (Arganda)</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/rotation_demo.png" alt="Mnożenie jako rotacja i skalowanie">
+        <figcaption>Mnożenie jako rotacja i skalowanie</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/roots_of_unity.png" alt="Pierwiastki z jedności">
+        <figcaption>n-te pierwiastki z jedności</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Instalacja i uruchomienie</h2>
+    <h3>Opcja A: Python + pip</h3>
+    <p>Minimalna, „lekka” instalacja.</p>
+<pre><code># 1) (opcjonalnie) wirtualne środowisko
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+
+# 2) Zależności
+pip install --upgrade pip
+pip install jupyterlab numpy matplotlib
+
+# 3) Uruchom
+jupyter lab
+# w interfejsie otwórz: complex_numbers_tutorial.ipynb
+</code></pre>
+
+    <h3>Opcja B: Anaconda/Miniconda</h3>
+    <p>Wygodne środowisko „wszystko w jednym”. Dobre na start.</p>
+<pre><code>conda create -n zespolone python=3.11 jupyterlab numpy matplotlib -y
+conda activate zespolone
+jupyter lab
+</code></pre>
+    <p>Strony pobrań: <a href="https://www.anaconda.com/download">Anaconda</a>, <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>.</p>
+  </section>
+
+  <section>
+    <h2>Porównanie sposobów uruchomienia (tabela)</h2>
+    <table>
+      <thead>
+        <tr><th>Kryterium</th><th>Python + pip</th><th>Anaconda/Miniconda</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Szybkość startu</td><td>✅ szybki</td><td>⚠️ większa instalacja</td></tr>
+        <tr><td>Izolacja środowisk</td><td>✅ venv</td><td>✅ conda env</td></tr>
+        <tr><td>Zarządzanie pakietami</td><td>dobre (pip)</td><td>bardzo dobre (conda)</td></tr>
+        <tr><td>Rozmiar</td><td>mały</td><td>większy</td></tr>
+        <tr><td>Dla początkujących</td><td>dobra</td><td><strong>bardzo dobra</strong></td></tr>
+      </tbody>
+    </table>
+    <p><em>Uwaga:</em> wybór zależy od preferencji i konfiguracji. Jeśli nie masz jeszcze Pythona, Anaconda bywa najprostszą opcją na start.</p>
+  </section>
+
+  <section>
+    <h2>Linki</h2>
+    <ul>
+      <li><a href="./README.md">README.md (pełna dokumentacja)</a></li>
+      <li><a href="./complex_numbers_tutorial.ipynb" download>Notatnik Jupyter (.ipynb)</a></li>
+    </ul>
+  </section>
+</body>
+</html>
